@@ -164,9 +164,15 @@ const Personal = () => {
                     <p className="text-xl text-accent font-semibold">UCLA Esports Valorant Team Member</p>
                   </div>
                   <div className="text-right">
-                    <Badge variant="outline" className="border-accent text-accent font-semibold">
-                      Immortal 2 Rank
-                    </Badge>
+                    <a 
+                      href="https://tracker.gg/valorant/profile/riot/Joctopus%23IOS" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      <Badge variant="outline" className="border-accent text-accent font-semibold hover:bg-accent/10 transition-colors cursor-pointer">
+                        Immortal 2 Peak
+                      </Badge>
+                    </a>
                   </div>
                 </div>
                 
@@ -215,7 +221,7 @@ const Personal = () => {
                   case 0: // Twitch clip
                     return (
                       <iframe
-                        src="https://clips.twitch.tv/embed?clip=GoodFrailTrufflePrimeMe-cDccZzyHxJ-C7RjX&parent=localhost"
+                        src="https://clips.twitch.tv/embed?clip=GoodFrailTrufflePrimeMe-cDccZzyHxJ-C7RjX&parent=tranjason.me"
                         height="300"
                         width="100%"
                         allowFullScreen
