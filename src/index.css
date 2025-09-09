@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Software Engineer Portfolio Design System */
+
+@layer base {
+  :root {
+    /* Core Brand Colors - Light Theme */
+    --background: 0 0% 100%;
+    --foreground: 220 30% 6%;
+    
+    /* Tech Brand Palette */
+    --primary: 200 100% 50%;
+    --primary-glow: 195 100% 60%;
+    --secondary: 220 20% 95%;
+    --accent: 280 100% 60%;
+    --accent-warm: 25 95% 60%;
+
+    /* UI Components */
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 6%;
+    --muted: 220 20% 95%;
+    --muted-foreground: 220 10% 40%;
+    --border: 220 20% 90%;
+    --input: 220 20% 95%;
+    --ring: 200 100% 50%;
+
+    /* Interactive States */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Design Tokens */
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(200 100% 50%), hsl(195 100% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(280 100% 60%), hsl(25 95% 60%));
+    --gradient-light: linear-gradient(135deg, hsl(0 0% 100%), hsl(220 20% 95%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(220 20% 98%));
+    
+    /* Shadows & Effects */
+    --shadow-primary: 0 10px 30px -10px hsl(200 100% 50% / 0.2);
+    --shadow-card: 0 8px 32px hsl(220 30% 6% / 0.1);
+    --glow-primary: 0 0 40px hsl(200 100% 50% / 0.3);
+    
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    /* Core Brand Colors - Dark Theme */
+    --background: 220 30% 6%;
+    --foreground: 220 10% 95%;
+    
+    /* Tech Brand Palette */
+    --primary: 200 100% 55%;
+    --primary-glow: 195 100% 70%;
+    --secondary: 240 15% 12%;
+    --accent: 280 100% 65%;
+    --accent-warm: 25 95% 60%;
+
+    /* UI Components */
+    --card: 225 25% 10%;
+    --card-foreground: 220 10% 95%;
+    --muted: 225 20% 15%;
+    --muted-foreground: 220 10% 60%;
+    --border: 225 20% 20%;
+    --input: 225 20% 15%;
+    --ring: 200 100% 55%;
+
+    /* Interactive States */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 10% 95%;
+    
+    /* Gradients */
+    --gradient-dark: linear-gradient(135deg, hsl(220 30% 6%), hsl(240 15% 12%));
+    --gradient-card: linear-gradient(135deg, hsl(225 25% 10%), hsl(225 20% 15%));
+    
+    /* Shadows & Effects */
+    --shadow-primary: 0 10px 30px -10px hsl(200 100% 55% / 0.3);
+    --shadow-card: 0 8px 32px hsl(220 30% 6% / 0.6);
+    --glow-primary: 0 0 40px hsl(200 100% 55% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-light);
+    min-height: 100vh;
+  }
+
+  .dark body {
+    background: var(--gradient-dark);
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
+  }
+}
+
+@layer components {
+  /* Hero text gradient */
+  .hero-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Animated underline */
+  .animated-underline {
+    position: relative;
+  }
+  
+  .animated-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: var(--gradient-primary);
+    transition: var(--transition-smooth);
+  }
+  
+  .animated-underline:hover::after {
+    width: 100%;
+  }
+  
+  /* Glassmorphism effect */
+  .glass {
+    background: hsl(var(--card) / 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border) / 0.2);
+  }
+}
