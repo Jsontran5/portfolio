@@ -40,7 +40,7 @@ const Home = () => {
               </Button>
               
               <Button asChild variant="outline" size="lg" className="border-primary/30 hover:bg-primary/10">
-                <a href="https://drive.google.com/file/d/1xmxh9w7Q2pb4PtTDAgEta2GP6DpP71Lx/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/file/d/1xmxh9w7Q2pb4PtTDAgEta2GP6DpP71Lx/view" target="_blank" rel="noopener noreferrer">
                   <Download className="mr-2 h-4 w-4" />
                   Resume
                 </a>
