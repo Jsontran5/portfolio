@@ -9,11 +9,11 @@ const Navigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/work', label: 'Work' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/personal', label: 'Personal' },
-    { path: '/contact', label: 'Contact' },
+    { path: '/portfolio', label: 'Home' },
+    { path: '/portfolio/work', label: 'Work' },
+    { path: '/portfolio/projects', label: 'Projects' },
+    { path: '/portfolio/personal', label: 'Personal' },
+    { path: '/portfolio/contact', label: 'Contact' },
   ];
 
   const isActivePath = (path: string) => location.pathname === path;
@@ -23,7 +23,7 @@ const Navigation = () => {
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold hero-gradient flex items-center gap-2">
+          <Link to="/portfolio" className="text-2xl font-bold hero-gradient flex items-center gap-2">
             <FileJson className="w-6 h-6" />
             .JSON
           </Link>

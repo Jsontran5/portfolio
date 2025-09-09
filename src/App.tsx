@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import Navigation from "./components/Navigation";
 import Home from "./pages/Home";
@@ -23,11 +23,12 @@ const App = () => (
         <HashRouter>
           <Navigation />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/work" element={<Work />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/personal" element={<Personal />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/portfolio" element={<Home />} />
+            <Route path="/portfolio/work" element={<Work />} />
+            <Route path="/portfolio/projects" element={<Projects />} />
+            <Route path="/portfolio/personal" element={<Personal />} />
+            <Route path="/portfolio/contact" element={<Contact />} />
+            <Route path="/" element={<Navigate to="/portfolio" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </HashRouter>

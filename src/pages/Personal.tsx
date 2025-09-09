@@ -36,19 +36,19 @@ const Personal = () => {
       title: 'Clutch retake at UCLA\'s Winter Tryouts',
       description: 'Pros Don\'t Fake or Do They?',
       thumbnail: 'https://static0.thegamerimages.com/wordpress/wp-content/uploads/2023/08/retake-smoke.jpg?q=50&fit=crop&w=825&dpr=1.5',
-      duration: '0:32'
+      duration: '0:37'
     },
     {
       title: 'Solo IceBox Retake',
       description: '1v4 retake to prevent enemy match point',
       thumbnail: 'https://i.imgur.com/9PY9pMu.jpeg',
-      duration: '0:30'
+      duration: '0:31'
     },
     {
       title: 'Calm Aim',
       description: 'lil calm aim on bonus round',
       thumbnail: 'https://i.imgur.com/KF4mGNS.jpeg',
-      duration: '0:38'
+      duration: '0:21'
     }
   ];
 
@@ -158,9 +158,16 @@ const Personal = () => {
               </div>
               
               <div className="flex-1">
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold mb-2">Gaming & Esports</h3>
-                  <p className="text-xl text-accent font-semibold">UCLA Esports Valorant Team Member</p>
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2">Gaming & Esports</h3>
+                    <p className="text-xl text-accent font-semibold">UCLA Esports Valorant Team Member</p>
+                  </div>
+                  <div className="text-right">
+                    <Badge variant="outline" className="border-accent text-accent font-semibold">
+                      Immortal 2 Rank
+                    </Badge>
+                  </div>
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-8">
@@ -202,56 +209,78 @@ const Personal = () => {
           </h3>
           
           <div className="grid md:grid-cols-2 gap-6">
-            {favoriteClips.map((clip, index) => (
-              <Card 
-                key={index}
-                className="group overflow-hidden glass hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:scale-[1.02] cursor-pointer"
-              >
-                <div className="relative">
-                  <img 
-                    src={clip.thumbnail} 
-                    alt={clip.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    {(() => {
-                      const clipUrls = [
-                        "https://www.twitch.tv/vintriix_/clip/GoodFrailTrufflePrimeMe-cDccZzyHxJ-C7RjX?filter=clips&range=7d&sort=time",
-                        "https://drive.google.com/file/d/1VSezpHGhLyw3Ny6faP-jfCgHmFhcZHdr/view?usp=sharing",
-                        "https://drive.google.com/file/d/1dbV0hrPVmCVDxTEHrNLtn7vlSo8-Lf0W/view?usp=sharing",
-                        "https://drive.google.com/file/d/1JqZe5VxbY61qdWQ0ptPHnOeY55EOmGLR/view?usp=drive_link"
-                      ];
-                      
-                      return (
-                        <a
-                          href={clipUrls[index]}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`Open ${index === 0 ? 'Twitch' : 'Google Drive'} clip in a new tab`}
-                          className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-                        >
-                          <Play className="w-8 h-8 text-white ml-1" />
-                        </a>
-                      );
-                    })()}
+            {favoriteClips.map((clip, index) => {
+              const getEmbedContent = (clipIndex: number) => {
+                switch(clipIndex) {
+                  case 0: // Twitch clip
+                    return (
+                      <iframe
+                        src="https://clips.twitch.tv/embed?clip=GoodFrailTrufflePrimeMe-cDccZzyHxJ-C7RjX&parent=localhost"
+                        height="300"
+                        width="100%"
+                        allowFullScreen
+                        className="rounded-lg"
+                      />
+                    );
+                  case 1: // Google Drive video 1
+                    return (
+                      <iframe
+                        src="https://drive.google.com/file/d/1VSezpHGhLyw3Ny6faP-jfCgHmFhcZHdr/preview"
+                        height="300"
+                        width="100%"
+                        allowFullScreen
+                        className="rounded-lg"
+                      />
+                    );
+                  case 2: // Google Drive video 2
+                    return (
+                      <iframe
+                        src="https://drive.google.com/file/d/1dbV0hrPVmCVDxTEHrNLtn7vlSo8-Lf0W/preview"
+                        height="300"
+                        width="100%"
+                        allowFullScreen
+                        className="rounded-lg"
+                      />
+                    );
+                  case 3: // Google Drive video 3
+                    return (
+                      <iframe
+                        src="https://drive.google.com/file/d/1JqZe5VxbY61qdWQ0ptPHnOeY55EOmGLR/preview"
+                        height="300"
+                        width="100%"
+                        allowFullScreen
+                        className="rounded-lg"
+                      />
+                    );
+                  default:
+                    return null;
+                }
+              };
+
+              return (
+                <Card 
+                  key={index}
+                  className="group overflow-hidden glass hover:shadow-[var(--shadow-card)] transition-all duration-300 hover:scale-[1.02]"
+                >
+                  <div className="relative">
+                    {getEmbedContent(index)}
+                    <div className="absolute bottom-4 right-4">
+                      <Badge variant="outline" className="bg-black/50 text-white border-white/30">
+                        {clip.duration}
+                      </Badge>
+                    </div>
                   </div>
-                  <div className="absolute bottom-4 right-4">
-                    <Badge variant="outline" className="bg-black/50 text-white border-white/30">
-                      {clip.duration}
-                    </Badge>
+                  <div className="p-6">
+                    <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors">
+                      {clip.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {clip.description}
+                    </p>
                   </div>
-                </div>
-                <div className="p-6">
-                  <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors">
-                    {clip.title}
-                  </h4>
-                  <p className="text-sm text-muted-foreground">
-                    {clip.description}
-                  </p>
-                </div>
-              </Card>
-            ))}
+                </Card>
+              );
+            })}
           </div>
           
           <div className="text-center mt-8">
