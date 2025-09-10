@@ -25,7 +25,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/portfolio" className="text-2xl font-bold hero-gradient flex items-center gap-2">
             <FileJson className="w-6 h-6" />
-            .JSON
+            .JASON
           </Link>
 
           {/* Desktop Navigation */}

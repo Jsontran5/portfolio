@@ -34,7 +34,7 @@ const Home = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button asChild size="lg" className="bg-gradient-to-r from-primary to-primary-glow hover:shadow-[var(--shadow-primary)] transition-all duration-300">
-                <Link to="/projects">
+                <Link to="/portfolio/projects">
                   View My Work <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -128,9 +128,11 @@ const Home = () => {
                     </a>
                   </Button>
                   
-                  <Button variant="outline" className="border-primary/30 hover:bg-primary/10">
-                    <Github className="w-4 h-4 mr-2" />
-                    View Code
+                  <Button asChild variant="outline" className="border-primary/30 hover:bg-primary/10">
+                    <a href="https://github.com/Jsontran5/Wingstop-Free-Fries/tree/wff-revamp" target="_blank" rel="noopener noreferrer">
+                      <Github className="w-4 h-4 mr-2" />
+                      View Code
+                    </a>
                   </Button>
                 </div>
               </div>
@@ -253,7 +255,7 @@ const Home = () => {
             </Button>
             
             <Button asChild variant="outline" size="lg" className="border-primary/30 hover:bg-primary/10">
-              <Link to="/contact">
+              <Link to="/portfolio/contact">
                 View Contact Info <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

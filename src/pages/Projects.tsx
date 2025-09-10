@@ -80,7 +80,7 @@ const Projects = () => {
             Featured <span className="hero-gradient">Projects</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A showcase of full-stack applications, machine learning models, and open-source contributions
+            Showcase of my full-stack applications, machine learning models, and open-source contributions
           </p>
         </div>
 
